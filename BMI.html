@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+</head>
+<body>
+<table style="text-align: center; width: 20px;">
+    <tr>
+        <th>nhập chiều cao</th>
+        <th>nhập cân nặng</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="hight" value=" " id="chieucao">
+        </td>
+        <td>
+            <input type="text" name="weight" value=" " id="cannang">
+        </td>
+        <td><button style="width: 80px;background-color: blue;color: white;font: 15px bold;" onclick="convert()">Tính toán</button></td>
+    </tr>
+</table>
+<p id="BMI"><b>BMI:</b></p>
+<p id="result"><b>Result:</b></p>
+<script>
+    function convert() {
+        let hight = document.getElementsByName("hight")[0].value;
+        let h= parseFloat(hight);
+        let weight = document.getElementsByName("weight")[0].value;
+        let w= parseFloat(weight);
+        let result;
+        let BMI= w/(h**2);
+        if (BMI<18.5) {
+            result="Underweight"
+        }
+        else {
+            if (18.5 <= BMI < 25) result = "Normal"
+            else {
+                if (25 <= BMI < 30) result = "Overweight"
+                else result = "Obese"
+            }
+        }
+        document.getElementById("BMI").innerHTML= ("<b>BMI:</b> " +BMI);
+        document.getElementById("result").innerHTML= ("<b>Result: </b>" +result);
+    }
+
+</script>
+</body>
+</html>
